@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timed Quiz</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
+
 <body>
     <!-- Create header with timer and highscore link in container-->
     <div class="container">
-    <header id="highScores" id="timer"></header>
+        <header id="highScores"></header>
+        <div style="text-align: right;" id="timer"></div>
     </div>
     <!-- Create seperate container for questions and buttons-->
     <div class="container" style="text-align: center;">
-        <h1 id="start" >Welcome to this quiz!</h1>
-        <p>Within the time limit try to answer as many questions correctly as you can. For each wrong answer, 10 seconds get deducted from your remaining time.</p>
-        <button type="button" class="btn btn-success" id="startButton">Start Quiz!</button>
-        <div id="quiz">
-            <div id="question"></div>
-            <div id="choices">
-                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-
-            </div>
-            <div id="timer">
-                <div id="counter"></div>
-            </div>
-        </div>
-        <div id="scoreContainer"></div>
+        <h1>Welcome to this quiz!</h1>
+        <p>Within the time limit try to answer as many questions correctly as you can. For each wrong answer, 10 seconds
+            get deducted from your remaining time.</p>
+        <button id="startButton">Start Quiz!</button>
+        <div id="quiz"></div>
     </div>
-<script src="script.js"></script>
+    <div id="scoreContainer"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
