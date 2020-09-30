@@ -1,7 +1,7 @@
 var mainDisplay = document.querySelector(".mainDisplay");
 var startButton = document.querySelector("#startButton");
 var highScores = document.querySelector("#scoreContainer");
-
+var answerButtons = document.querySelector("#buttons");
 var timer = document.querySelector("#timer");
 var timeLeft = 100;
 var quizIndex = 0;
@@ -41,7 +41,7 @@ $(document).ready(function () {
     //Hide start button on click
     $("#startButton").on("click", function () {
         $(startButton).hide();
-        $(mainDisplay).hide();
+       
         // Set up timer to start when Start button is clicked
         var quizTimer = setInterval(function () {
             if (timeLeft === -1) {
@@ -56,12 +56,29 @@ $(document).ready(function () {
 
         }, 1000);
         //function to display quiz questions
+        displayQuestion(quizIndex);
+        // answerCheck(quizIndex);
         function displayQuestion(index) {
             if (index >= quiz.length) {
                 quizFinished = true;
             }
             else {
                 mainDisplay.textContent = quiz[index].question;
+                
+                for (var i=0; i<4; i++) {
+                    var quizAnswers = document.createElement("button");
+                    quizAnswers.setAttribute("class", "btn btn-primary m-1");
+                    quizAnswers.setAttribute("id", (i + 1).toString())
+                    if (i == 0)
+                        quizAnswers.textContent = quiz[index].answers[i];
+                        else if (i ==1)
+                        quizAnswers.textContent = quiz[index].answers[i];
+                        else if (i == 2)
+                        quizAnswers.textContent = quiz[index].answers[i];
+                        else 
+                        quizAnswers.textContent = quiz[index].answers[i];
+                        answerButtons.append(quizAnswers)
+                }
             }
         }
             //loop through quiz questions
