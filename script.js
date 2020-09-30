@@ -3,7 +3,7 @@ var startButton = document.querySelector("#startButton");
 var highScores = document.querySelector("#scoreContainer");
 
 var timer = document.querySelector("#timer");
-var timeLeft = 10;
+var timeLeft = 100;
 var quizIndex = 0;
 var quizFinished = false;
 
@@ -55,7 +55,7 @@ $(document).ready(function () {
             timeLeft--;
 
         }, 1000);
-
+        //function to display quiz questions
         function displayQuestion(index) {
             if (index >= quiz.length) {
                 quizFinished = true;
