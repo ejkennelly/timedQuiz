@@ -13,9 +13,9 @@ var quiz = [
         question: "Commonly used data types DO NOT include:",
         answer1: "strings",
         answer2:"booleans",
-        answer3:"alerts",
+        answer3: "alerts",
         answer4:"numbers",
-        correct: "alerts"
+        correct: "alerts",
     },
     {
         question: "The condition in an if/else statement is enclosed within _______.",
@@ -79,21 +79,18 @@ function answerCheck(quizIndex) {
         allAnswers[i].addEventListener("click", function () {
             if (this.id === quiz[quizIndex].correct) {
                 redraw(quizIndex);
-                answerDisplay.textContent = "Correct!";
+                console.log("Correct!");
             }
             else {
+                //if Answer is incorrect subtract 10 
                 timeLeft -= 10;
                 redraw(quizIndex);
-                answerDisplay.textContent = "Wrong!"
+                console.log("Wrong!")
             }
         })
     }
 };
-function clearButtons() {
-    $("#buttons").on("click", function() {
-        answerButtons.empty(answerDisplay);
-    })
-}
+
 function redraw(quizIndex){
     quizIndex++;
     buttons.innerHTML=""
@@ -101,7 +98,7 @@ function redraw(quizIndex){
     answerCheck(quizIndex);
 };
 $(document).ready(function () {
-
+    $(highScores).hide();
     //Hide start button on click
     $("#startButton").on("click", function () {
         $(startButton).hide();
@@ -109,18 +106,19 @@ $(document).ready(function () {
         answerCheck(quizIndex);
         // Set up timer to start when Start button is clicked
         var quizTimer = setInterval(function () {
-            if (timeLeft === -1) {
+            if (timeLeft === 0) {
                 clearInterval(quizTimer);
                 window.alert("You ran out of time!");
 
             } else {
-                timer.innerHTML = timeLeft + " seconds left."
+                timer.innerHTML = timeLeft + " seconds left!"
             }
-            //if Answer is incorrect subtract 10 
+            
             timeLeft--;
 
         }, 1000);
 
+    
 
         //loop through quiz questions
         //Answer click moves onto next question 
