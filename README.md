@@ -1,1 +1,2 @@
 # timedQuiz
+The goal of this project is to create a timed quiz that shows one question at a time and has a timer that deducts ten seconds when a question is answered wrong. When the user finishes the quiz, an input box appears for their initials and stores their score and initials locally. 
